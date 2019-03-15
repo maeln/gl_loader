@@ -30,7 +30,7 @@ First you will need the following requirement:
 
 Then, using the `gl` crate, you should be able to just do:
 ```
-use gl_loader::get_proc_address;
+use gl_loader::loader::get_proc_address;
 
 fn load_gl_symbol() {
     unsafe {
@@ -45,6 +45,11 @@ Your function pointer should be loaded and you should be able to use OpenGL.
 
 For now I only had the time to copy paste the code for Mac OS X and test it.
 I will update the package to support at least windows and linux when I have the time.
+
+## Goal
+
+Right now, some of the dependencies are relying on the std.
+The final goal is to make the package fully `#![no_std]` compatible.
 
 ## Credit
 

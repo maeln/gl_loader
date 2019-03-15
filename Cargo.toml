@@ -1,6 +1,6 @@
 [package]
 name = "gl_loader"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Maël Naccache Tüfekçi <contact@maeln.com>"]
 edition = "2018"
 description = "Simple OpenGL function pointer loader."
@@ -11,3 +11,6 @@ repository = "https://github.com/maeln/gl_loader"
 
 [target.'cfg(target_os = "macos")'.dependencies]
 core-foundation = "0.6"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winapi = "0.3.6"
