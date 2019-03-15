@@ -1,8 +1,10 @@
 [package]
 name = "gl_loader"
-version = "0.1.0"
-authors = ["Maël <contact@maeln.com>"]
+version = "0.0.1"
+authors = ["Maël Naccache Tüfekçi <contact@maeln.com>"]
 edition = "2018"
+description = "Simple OpenGL function pointer loader."
+licence = "CeCILL v2.1"
 
 [dependencies]
 
