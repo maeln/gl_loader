@@ -49,4 +49,5 @@ I will update the package to support at least windows and linux when I have the 
 ## Credit
 
 **glutin contributors**: Most of the code is straight out ripped from glutin.
+
 **fizzer and ferris**: For giving me the idea and explaining some of the specific to me
