@@ -1,0 +1,10 @@
+[package]
+name = "gl_loader"
+version = "0.1.0"
+authors = ["Maël <contact@maeln.com>"]
+edition = "2018"
+
+[dependencies]
+
+[target.'cfg(target_os = "macos")'.dependencies]
+core-foundation = "0.6"
