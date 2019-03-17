@@ -8,9 +8,10 @@ license = "CECILL-2.1"
 repository = "https://github.com/maeln/gl_loader"
 
 [dependencies]
+libc = "0.2"
 
 [target.'cfg(target_os = "macos")'.dependencies]
 core-foundation = "0.6"
 
 [target.'cfg(target_os = "windows")'.dependencies]
-winapi = "0.3.6"
+win = { path = "./win" }

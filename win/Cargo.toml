@@ -1,0 +1,12 @@
+[package]
+name = "win"
+version = "0.1.0"
+authors = ["Maël NACCACHE <contact@maeln.com>"]
+edition = "2018"
+build = "build.rs"
+
+[dependencies]
+libc = "0.2"
+
+[build-dependencies]
+cc = "1.0"
