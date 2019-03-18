@@ -1,8 +1,10 @@
-# GL Loader
+# `gl_loader`: an OpenGL function pointer loader based on Glad
 
 This (small) package aim to do *only one thing*: Provide a `get_proc_address` function to load OpenGL function pointer.
 
 It will not provide any form of window or OpenGL context creation. You will have to handle them by yourself.
+
+The code is simply a binding to the pointer loading part of the glad library: [glad](https://glad.dav1d.de/)
 
 ## Explanation
 
@@ -28,23 +30,21 @@ First you will need the following requirement:
 1 - An OpenGL context has been created and made current
 2 - You are calling the `get_proc_address` from *the same thread* has the one which owns the current context
 
-Then, using the `gl` crate, you should be able to just do:
+Then, using the [gl](https://crates.io/crates/gl) crate, you should be able to just do:
 ```
-use gl_loader::loader::get_proc_address;
+extern crate gl_loader;
 
 fn load_gl_symbol() {
-    unsafe {
-        gl::load_with(|symbol| get_proc_address(symbol) as *const _);
-    }
+    gl_loader::init_gl();
+    gl::load_with(|symbol| gl_loader::get_proc_address(symbol) as *const _);
 }
 ```
 
 Your function pointer should be loaded and you should be able to use OpenGL.
 
-## Support
+### NOTE:
 
-For now I only had the time to copy paste the code for Mac OS X and test it.
-I will update the package to support at least windows and linux when I have the time.
+You *need* to call `gl_loader::init_gl()` *before* calling `gl_loader::get_proc_address(...)`, `init_gl()` will make sure that the OpenGL Library/Framework are properly loaded.
 
 ## Goal
 
@@ -53,6 +53,8 @@ The final goal is to make the package fully `#![no_std]` compatible.
 
 ## Credit
 
-**glutin contributors**: Most of the code is straight out ripped from glutin.
+**glutin contributors**: The original code was based on the glutin source code.
 
-**fizzer and ferris**: For giving me the idea and explaining some of the specific to me
+**glad contributors**: The current code is a binding to the specific part of Glad that handle function pointer loading.
+
+**[Fizzer](http://www.pouet.net/user.php?who=82805) and [Ferris](http://www.pouet.net/user.php?who=16820)**: For giving me the idea and explaining some of the specific to me

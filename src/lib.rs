@@ -4,17 +4,12 @@ use std::ffi::CString;
 
 extern "C" {
     fn open_gl() -> libc::c_int;
-    fn init_glad() -> libc::c_int;
     fn close_gl();
     fn get_proc(name: *const libc::c_char) -> *const libc::c_void;
 }
 
 pub fn init_gl() -> i32 {
     unsafe { open_gl() }
-}
-
-pub fn start_glad() -> i32 {
-    unsafe { init_glad() }
 }
 
 pub fn end_gl() {

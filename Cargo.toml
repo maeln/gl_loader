@@ -1,9 +1,9 @@
 [package]
 name = "gl_loader"
-version = "0.0.4"
+version = "0.1.0"
 authors = ["Maël Naccache Tüfekçi <contact@maeln.com>"]
 edition = "2018"
-description = "Simple OpenGL function pointer loader."
+description = "Simple OpenGL function pointer loader based on Glad."
 license = "CECILL-2.1"
 repository = "https://github.com/maeln/gl_loader"
 build = "build.rs"
