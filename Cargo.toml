@@ -1,6 +1,6 @@
 [package]
 name = "gl_loader"
-version = "0.0.3"
+version = "0.0.4"
 authors = ["Maël Naccache Tüfekçi <contact@maeln.com>"]
 edition = "2018"
 description = "Simple OpenGL function pointer loader."
