@@ -2187,3 +2187,20 @@ int gladLoadGLLoader(GLADloadproc load)
 		return 0;
 	return GLVersion.major != 0 || GLVersion.minor != 0;
 }
+
+int init_glad()
+{
+	GLVersion.major = 0;
+	GLVersion.minor = 0;
+	glGetString = (PFNGLGETSTRINGPROC)get_proc("glGetString");
+	if (glGetString == NULL)
+		return 0;
+	if (glGetString(GL_VERSION) == NULL)
+		return 0;
+	find_coreGL();
+	/*
+	if (!find_extensionsGL())
+		return 0;
+	*/
+	return GLVersion.major != 0 || GLVersion.minor != 0;
+}
